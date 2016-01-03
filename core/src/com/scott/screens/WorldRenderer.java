@@ -83,26 +83,26 @@ public class WorldRenderer {
         
         if (s == RUNNING) {
             if(!left) {
-                batch.draw(AssetManager.marioRun.getKeyFrame(runtime), player.getX(), player.getY());
+                batch.draw(AssetManager.run.getKeyFrame(runtime), player.getX(), player.getY());
             } else {
-                batch.draw(AssetManager.marioRunL.getKeyFrame(runtime), player.getX(), player.getY());
+                batch.draw(AssetManager.runL.getKeyFrame(runtime), player.getX(), player.getY());
             }
             runtime += deltaTime;
-            if(AssetManager.marioRun.isAnimationFinished(runtime) || AssetManager.marioRunL.isAnimationFinished(runtime)) {
+            if(AssetManager.run.isAnimationFinished(runtime) || AssetManager.runL.isAnimationFinished(runtime)) {
                 runtime = 0;
             }
         } else if(s == STANDING) {
             if(!left) {
-                batch.draw(AssetManager.marioStand, player.getX(), player.getY());
+                batch.draw(AssetManager.stand, player.getX(), player.getY());
             } else {
-                batch.draw(AssetManager.marioStandL, player.getX(), player.getY());
+                batch.draw(AssetManager.standL, player.getX(), player.getY());
             }
             runtime = 0;
         } else if (s == JUMPING) {
             if(left) {
-                batch.draw(AssetManager.marioJumpL, player.getX(), player.getY());
+                batch.draw(AssetManager.jumpL, player.getX(), player.getY());
             } else {
-                batch.draw(AssetManager.marioJump, player.getX(), player.getY());
+                batch.draw(AssetManager.jump, player.getX(), player.getY());
             }
             runtime = 0;
         }

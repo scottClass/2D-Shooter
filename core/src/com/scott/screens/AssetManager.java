@@ -19,29 +19,29 @@ public class AssetManager {
     
     private static TextureAtlas atlas;
     public static TextureRegion block;
-    public static TextureRegion marioStand;
-    public static TextureRegion marioStandL;
-    public static TextureRegion marioJump;
-    public static TextureRegion marioJumpL;
-    public static Animation marioRun;
-    public static Animation marioRunL;
+    public static TextureRegion stand;
+    public static TextureRegion standL;
+    public static TextureRegion jump;
+    public static TextureRegion jumpL;
+    public static Animation run;
+    public static Animation runL;
     
     public static void load() {
         atlas = new TextureAtlas("Mario.pack");
         block = atlas.findRegion("stoneBlock");
-        marioStand = atlas.findRegion("stand");
-        marioStandL = new TextureRegion(marioStand);
-        marioStandL.flip(true, false);
-        marioJump = atlas.findRegion("jump");
-        marioJumpL = new TextureRegion(marioJump);
-        marioJumpL.flip(true, false);
+        stand = atlas.findRegion("stand");
+        standL = new TextureRegion(stand);
+        standL.flip(true, false);
+        jump = atlas.findRegion("jump");
+        jumpL = new TextureRegion(jump);
+        jumpL.flip(true, false);
         
         Array<AtlasRegion> run = atlas.findRegions("run");
-        marioRun = new Animation(0.1f, run);
+        AssetManager.run = new Animation(0.1f, run);
         
         run = atlas.findRegions("run");
-        marioRunL = new Animation(0.1f, run);
-        for(TextureRegion r: marioRunL.getKeyFrames()) {
+        runL = new Animation(0.1f, run);
+        for(TextureRegion r: runL.getKeyFrames()) {
             r.flip(true, false);
         }
     }
