@@ -12,12 +12,12 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.scott.model.Block;
-import com.scott.model.Goomba;
-import com.scott.model.Mario;
-import com.scott.model.Mario.State;
-import static com.scott.model.Mario.State.JUMPING;
-import static com.scott.model.Mario.State.RUNNING;
-import static com.scott.model.Mario.State.STANDING;
+import com.scott.model.Enemy;
+import com.scott.model.Player;
+import com.scott.model.Player.State;
+import static com.scott.model.Player.State.JUMPING;
+import static com.scott.model.Player.State.RUNNING;
+import static com.scott.model.Player.State.STANDING;
 import com.scott.model.World;
 
 /**
@@ -26,8 +26,8 @@ import com.scott.model.World;
  */
 public class WorldRenderer {
     private World world;
-    private Mario player;
-    private Goomba goomba;
+    private Player player;
+    private Enemy goomba;
     
     public final int V_WIDTH = 800;
     public final int V_HEIGHT = 600;
@@ -36,14 +36,12 @@ public class WorldRenderer {
     private OrthographicCamera camera;
     private SpriteBatch batch;
     
-    private float move;
     
     public boolean left;
     
     private float runtime;
     
     public WorldRenderer(World w) {
-        move = 0;
         world = w;
         player = world.getPlayer();
         goomba = world.getGoomba();
@@ -80,9 +78,6 @@ public class WorldRenderer {
         for(Block b: world.getBlocks()) {
             batch.draw(AssetManager.block, b.getX(), b.getY());
         }
-        batch.draw(AssetManager.goombaWalk, goomba.getX(), goomba.getY(), 25, 25);
-        goomba.setX(move);
-        move++;
         //draw animation frame
         State s = player.getState();
         

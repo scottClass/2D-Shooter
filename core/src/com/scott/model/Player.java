@@ -10,7 +10,7 @@ import com.badlogic.gdx.math.Vector2;
  *
  * @author johns6971
  */
-public class Mario extends Entity {
+public class Player extends Entity {
     private final float X_MAX_VEL = 2.0f;
     private final float Y_MAX_VEL = 4.0f;
     private final float DAMP = 0.9f;
@@ -30,7 +30,7 @@ public class Mario extends Entity {
     
     private float stateTime;
     
-    public Mario(float x, float y, float width, float height) {
+    public Player(float x, float y, float width, float height) {
         super(x, y, width, height);
         state = State.STANDING;
         velocity = new Vector2(0, 0);

@@ -9,9 +9,9 @@ package com.scott.model;
  *
  * @author scott
  */
-public class Goomba extends Entity{
+public class Enemy extends Entity{
     
-    public Goomba(float x, float y, float width, float height) {
+    public Enemy(float x, float y, float width, float height) {
         super(x, y, width, height);
     }
 }

@@ -16,7 +16,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.scott.model.Block;
-import com.scott.model.Mario;
+import com.scott.model.Player;
 import com.scott.model.World;
 import com.scott.screens.WorldRenderer;
 
@@ -26,7 +26,7 @@ import com.scott.screens.WorldRenderer;
  */
 public class MainGame implements Screen {
     private World theWorld;
-    private Mario player;
+    private Player player;
     
     private WorldRenderer renderer;
     
@@ -47,9 +47,9 @@ public class MainGame implements Screen {
         
         if(!Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.A)) {
             if(player.getVelocityY() == 0) {
-                player.setState(Mario.State.STANDING);
+                player.setState(Player.State.STANDING);
             } else {
-                player.setState(Mario.State.JUMPING);
+                player.setState(Player.State.JUMPING);
             }
         }
         
@@ -57,25 +57,25 @@ public class MainGame implements Screen {
             player.setVelocityX(2f);
             renderer.setLeft(false);
             if(player.getVelocityY() == 0) {
-                player.setState(Mario.State.RUNNING);
+                player.setState(Player.State.RUNNING);
             } else {
-                player.setState(Mario.State.JUMPING);
+                player.setState(Player.State.JUMPING);
             }
         } else if (Gdx.input.isKeyPressed(Keys.A)) {
             player.setVelocityX(-2f);
             renderer.setLeft(true);
             if(player.getVelocityY() == 0) {
-                player.setState(Mario.State.RUNNING);
+                player.setState(Player.State.RUNNING);
             } else {
-                player.setState(Mario.State.JUMPING);
+                player.setState(Player.State.JUMPING);
             }
         }
         
         if(Gdx.input.isKeyPressed(Keys.SPACE)) {
             player.jump();
-            player.setState(Mario.State.JUMPING);
+            player.setState(Player.State.JUMPING);
         } else if(!Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.A)) {
-            player.setState(Mario.State.STANDING);
+            player.setState(Player.State.STANDING);
         }
         
         
