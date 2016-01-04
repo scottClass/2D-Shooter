@@ -78,6 +78,10 @@ public class MainGame implements Screen {
             player.setState(Player.State.STANDING);
         }
         
+        if(player.getVelocityY() != 0) {
+            player.setState(Player.State.JUMPING);
+        }
+        
         
         player.update(deltaTime);
         //collisions
