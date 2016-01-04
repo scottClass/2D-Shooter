@@ -73,11 +73,7 @@ public class MainGame implements Screen {
         
         if(Gdx.input.isKeyPressed(Keys.SPACE)) {
             player.jump();
-            player.setState(Player.State.JUMPING);
-        } else if(!Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.A)) {
-            player.setState(Player.State.STANDING);
         }
-        
         if(player.getVelocityY() != 0) {
             player.setState(Player.State.JUMPING);
         }
